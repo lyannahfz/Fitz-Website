@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Mohd Fitrah Abdul Rahman</title>
+    <link rel="icon" type="home" href="images/home.png">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&family=Great+Vibes&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+    
+        body {
+            font-family: 'Playfair Display', serif;
+            margin: 0;
+            padding: 0;
+            background: url('images/design bg.jpg') no-repeat center center fixed; 
+            background-size: cover;
+            color: #000000;
+        }
+
+        header {
+            font-family: 'Great Vibes', cursive;
+            background-color: rgba(247, 243, 233, 0.704); 
+            color: #000000;
+            padding: 20px;
+            text-align: center;
+            font-size: 53px;
+            font-weight: 559; 
+            letter-spacing: 2px;
+            border-bottom: 3px solid #ffd700;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            background-color: rgba(51, 51, 51, 0.9); 
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav a {
+            color: #ffd700;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: white;
+        }
+
+        section {
+            padding: 50px;
+            max-width: 1200px;
+            margin: 20px auto;
+            margin-top: 50px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            background-color: rgba(70, 66, 66, 0.775); 
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .text-content h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 48px;
+            color: #ffd700;
+            margin-bottom: 10px;
+            opacity: 0; 
+            transition: opacity 2s ease-in-out; 
+        }
+
+        .text-content h3 {
+            font-size: 20px;
+            color: #f9f5f5;
+            line-height: 1.6;
+            font-weight: 452;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .image-content img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 15px;
+            border: 2px solid #ffd700;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            background-color: rgba(51, 51, 51, 0.9);
+            color: #ffd700;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            margin-top: 30px; 
+        }
+
+        .footer-icons a {
+            margin: 0 10px;
+            color: white;
+            text-decoration: none;
+            font-size: 24px;
+        }
+
+        .footer-icons a:hover {
+            color: #ffd700;
+        }
+
+        .date-time {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        Fitz's Journey
+    </header>
+
+    <nav>
+        <a href="index.html" onclick="smoothScroll('home')">Home</a>
+        <a href="background.html" onclick="smoothScroll('background')">Background</a>
+        <a href="education.html" onclick="smoothScroll('education')">Education</a>
+        <a href="achievement.html" onclick="smoothScroll('achievement')">Achievements</a>
+        <a href="gallery.html" onclick="smoothScroll('gallery')">Gallery</a>
+        <a href="contact.html" onclick="smoothScroll('contact')">Contact</a>
+    </nav>
+
+    <section id="home">
+        <div class="text-content">
+            <h1 id="welcomeMessage">Welcome</h1>
+            <h3>This is my personal website where all my journey begin. Feel free to explore the background, journey, and achievements of me.</h3>
+        </div>
+        <div class="image-content">
+            <img src="images/Fitz.jpg" alt="Mohd Fitrah Abdul Rahman">
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-icons">
+            <a href="https://www.facebook.com/fitrah.apik?mibextid=wwXIfr&mibextid=wwXIfr" target="_blank" aria-label="Facebook">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a href="https://www.instagram.com/omgfitzz/profilecard/?igsh=MTQybXAza2M5YWs1cQ==" target="_blank" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://youtube.com/@mohdfitrah8596?si=t-BGC5X5CUW1jCkn" target="_blank" aria-label="Youtube">
+                <i class="fab fa-youtube"></i>
+            </a>
+            <a href="tel:60165313189" aria-label="Phone">
+                <i class="fas fa-phone"></i>
+            </a>
+        </div>
+        <div class="date-time" id="dateTime"></div>
+        <p>&copy; 2024 Nur Liana Natasha Binti Mohammad Hafiz Akmal. All Rights Reserved.</p>
+    </footer>
+</section>
+
+        <script>
+            window.addEventListener('load', function() {
+            function updateDateTime() {
+                const dateTimeElement = document.getElementById('dateTime');
+                const options = {
+                    timeZone: 'Asia/Kuching',
+                    year: 'numeric',
+                    month: 'numeric',
+                    day: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit',
+                };
+                const currentDateTime = new Date().toLocaleString('en-GB', options);
+                dateTimeElement.textContent = currentDateTime;
+            }
+            setInterval(updateDateTime, 1000);
+        });
+        </script>
+
+    <script>
+        window.addEventListener('load', function() {
+            const welcomeMessage = document.getElementById('welcomeMessage');
+            welcomeMessage.style.opacity = 2;
+        });
+    </script>
+</body>
+</html>
